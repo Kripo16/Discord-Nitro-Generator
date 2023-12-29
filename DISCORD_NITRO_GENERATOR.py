@@ -1,9 +1,11 @@
+#importing libraries
 import requests
 import subprocess
 import os
 import time
 from colorama import init, Fore
 
+#CODE FOR THE STARTING ANIMAITON
 def print_with_delay(text, color, delay=0.1):
     for char in text:
         print(Fore.__dict__[color] + char, end='', flush=True)
@@ -19,7 +21,7 @@ def welcome_animation():
 welcome_animation()
 
 
-
+#DEFINING THE PARAMS
 syntax = "https://discord.com/billing/partner-promotions/1180231712274387115/"
 url = "https://api.discord.gx.games/v1/direct-fulfillment"
 headers = {
@@ -41,8 +43,11 @@ headers = {
 data = {
     'partnerUserId': '24600c8d4e29e8e85dbda8ed562c5c03be51ae8ac8f0249ec5a64e9fe42313e3'
 }
+#DECLARING VARIABLE (USED AS A CONDITION FOR THE WHILE LOOP)
 x = 1
+#SETTING UP THE PATH FOR THE TXT FILE
 file_path = 'CODES\\code.txt'
+#CODE FOR GENERATING THE NITROS
 def generate():
     global x
     global file_path
@@ -70,6 +75,7 @@ def generate():
             print(f"Error: {response.status_code} - {response.text}")
             break
         x+=1
+    #CODE TO WRITE THE CODES IN A TXT FILE
     with open(file_path, 'a') as file:
             # Write the data to the file
             file.write('                                                        [THE END]\n')
@@ -77,6 +83,7 @@ def generate():
     if (x-1) == number:
         x = 1
     ask()
+#CODE TO SEE WETHER THE USER IS DONE OR NOT 
 def ask():
     answer = input("Wanna generate again? (yes/no) ")
     if answer.lower() == "yes":
@@ -86,6 +93,7 @@ def ask():
         ask()
     elif answer.lower() == 'no':
         openfile(app_name)
+#CODE TO OPEN THE TXT FILE
 def openfile(app_name):
     subprocess.run(['start', '', app_name], shell=True)
 app_name = 'CODES\\code.txt'  
